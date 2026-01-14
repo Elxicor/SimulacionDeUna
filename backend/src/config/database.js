@@ -16,7 +16,9 @@ const pool = new Pool({
   },
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 10000,
+  // Forzar IPv4 para evitar problemas de conectividad IPv6 en Render
+  family: 4
 });
 
 pool.on('connect', () => {
